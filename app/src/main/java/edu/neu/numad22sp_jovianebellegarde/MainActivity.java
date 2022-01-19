@@ -13,4 +13,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void showToast() {
+        String toastText = "Name: Joviane Bellegarde\n" +
+                "Email: bellegarde.j@northeastern.edu";
+    }
+
 }
