@@ -8,7 +8,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
   /**
-   * Create to run
+   * Create to run app.
    * @param savedInstanceState run the app.
    */
   @Override
