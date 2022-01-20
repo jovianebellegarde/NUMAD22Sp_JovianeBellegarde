@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
   /**
    * Shows the toast message when user clicks the button.
    * @param view to get context of message.
+   * Used https://developer.android.com/guide/topics/ui/notifiers/toasts#java for Toast reference.
    */
   public void activateToastButton(View view) {
     CharSequence toastText = "Name: Joviane Bellegarde\nEmail: bellegarde.j@northeastern.edu";
