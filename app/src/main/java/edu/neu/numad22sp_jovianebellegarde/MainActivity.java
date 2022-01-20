@@ -7,13 +7,20 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+  /**
+   * Create to run
+   * @param savedInstanceState run the app.
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
   }
 
-  // TODO try to center button
+  /**
+   * Shows the toast message when user clicks the button.
+   * @param view to get context of message.
+   */
   public void activateToastButton(View view) {
     CharSequence toastText = "Name: Joviane Bellegarde\nEmail: bellegarde.j@northeastern.edu";
     int duration = Toast.LENGTH_SHORT;
