@@ -7,15 +7,16 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+  }
 
-    public void showToast() {
-        String toastText = "Name: Joviane Bellegarde\n" +
-                "Email: bellegarde.j@northeastern.edu";
-    }
+  public void activateToastButton(View view) {
+    CharSequence toastText = "Name: Joviane Bellegarde\nEmail: bellegarde.j@northeastern.edu";
+    int duration = Toast.LENGTH_SHORT;
+    Toast.makeText(view.getContext(), toastText, duration).show();
+  }
 
 }
