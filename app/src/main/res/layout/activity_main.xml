@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="Hello World!"
         android:textAllCaps="false"
-        android:textColor="@color/design_default_color_secondary"
+        android:textColor="@color/teal_700"
         android:textSize="60sp"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
