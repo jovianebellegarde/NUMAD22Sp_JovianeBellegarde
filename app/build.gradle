@@ -3,6 +3,20 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('/Users/jovianebellegarde/AndroidStudioProjects/NUMAD22Sp_JovianeBellegarde/app/key store/JBKeystore')
+            storePassword 'Vanille13'
+            keyAlias 'CS5520 Project 1'
+            keyPassword 'Vanille13'
+        }
+        release {
+            storeFile file('/Users/jovianebellegarde/AndroidStudioProjects/NUMAD22Sp_JovianeBellegarde/app/key store/JBKeystore')
+            storePassword 'Vanille13'
+            keyAlias 'key0'
+            keyPassword 'Vanille13'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "32.0.0"
 
@@ -14,6 +28,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
 
     buildTypes {
