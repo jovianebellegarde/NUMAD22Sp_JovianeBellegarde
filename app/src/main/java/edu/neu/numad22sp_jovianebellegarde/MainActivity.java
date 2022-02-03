@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         CharSequence toastText = "Name: Joviane Bellegarde\nEmail: bellegarde.j@northeastern.edu";
         int duration = Toast.LENGTH_SHORT;
         Toast.makeText(view.getContext(), toastText, duration).show();
+
+      case R.id.clickyClicky:
     }
   }
 }
