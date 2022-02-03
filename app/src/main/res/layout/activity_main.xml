@@ -14,14 +14,14 @@
         android:textAllCaps="false"
         android:textColor="#4CAF50"
         android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/aboutMe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.271" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/aboutMe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -37,11 +37,11 @@
         tools:ignore="MissingConstraints,OnClick" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/clickyClicky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/clicky_clicky"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/aboutMe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
