@@ -9,7 +9,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
   /**
-   * Create to run app.
+   * Created to run the app.
    * @param savedInstanceState run the app.
    */
   @Override
@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
   }
 
   /**
-   * Shows the toast message when user clicks the clickyClicky.
-   * @param view to get context of message.
+   * Shows the toast message when user clicks the About Me button.
+   * @param view to get Context of message.
    * Used https://developer.android.com/guide/topics/ui/notifiers/toasts#java for Toast reference.
    */
   public void showToastMessage(View view) {
@@ -29,8 +29,11 @@ public class MainActivity extends AppCompatActivity {
     Toast.makeText(view.getContext(), toastText, duration).show();
    }
 
-  public void openSecondActivity(View view) {
-    Intent intent = new Intent(this, SecondActivity.class);
-    startActivity(intent);
+  /**
+   * Opens a new activity with 6 buttons from A to F.
+   * @param view to get the Context of the message.
+   */
+  public void openButtonActivity(View view) {
+    startActivity(new Intent(view.getContext(), ButtonActivity.class));
   }
 }

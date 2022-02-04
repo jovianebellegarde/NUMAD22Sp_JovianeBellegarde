@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_jb_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD22Sp_JovianeBellegarde">
-        <activity android:name=".SecondActivity"></activity>
+        <activity android:name=".ButtonActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

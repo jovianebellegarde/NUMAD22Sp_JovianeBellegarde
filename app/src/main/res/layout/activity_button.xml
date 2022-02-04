@@ -4,36 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
+    tools:context=".ButtonActivity">
 
+    <!--
+    Referred to:
+    https://developer.android.com/reference/android/widget/TextView#attr_android:freezesText
+    to freeze the text when rotating the screen.
+    -->
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/buttonActivityTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="232dp"
         android:text="@string/pressed"
+        android:freezesText="true"
         android:textAllCaps="false"
-        android:textColor="#4CAF50"
+        android:textColor="#2BB130"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.689"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/buttonA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClick"
         android:text="@string/a"
         app:layout_constraintBottom_toTopOf="@+id/buttonD"
         app:layout_constraintEnd_toStartOf="@+id/buttonB"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.695"
-        tools:ignore="OnClick" />
+        app:layout_constraintVertical_bias="0.695" />
 
     <Button
         android:id="@+id/buttonB"
@@ -57,40 +63,40 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonB"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.695" />
+        app:layout_constraintVertical_bias="0.693" />
 
     <Button
         android:id="@+id/buttonD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="392dp"
         android:text="@string/d"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonE"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="392dp"
         android:text="@string/e"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonF"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonD" />
+        app:layout_constraintStart_toEndOf="@+id/buttonD"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="392dp"
         android:text="@string/f"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonE" />
+        app:layout_constraintStart_toEndOf="@+id/buttonE"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
