@@ -1,8 +1,7 @@
 package edu.neu.numad22sp_jovianebellegarde;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -24,16 +23,15 @@ public class MainActivity extends AppCompatActivity {
    * @param view to get context of message.
    * Used https://developer.android.com/guide/topics/ui/notifiers/toasts#java for Toast reference.
    */
-  @SuppressLint("NonConstantResourceId")
-  public void onClickAction(View view) {
+  public void showButtonMessage(View view) {
+    int id = view.getId();
+    CharSequence toastText = "Name: Joviane Bellegarde\nEmail: bellegarde.j@northeastern.edu";
+    int duration = Toast.LENGTH_SHORT;
+    Toast.makeText(view.getContext(), toastText, duration).show();
+   }
 
-    switch(view.getId()) {
-      case R.id.aboutMe:
-        CharSequence toastText = "Name: Joviane Bellegarde\nEmail: bellegarde.j@northeastern.edu";
-        int duration = Toast.LENGTH_SHORT;
-        Toast.makeText(view.getContext(), toastText, duration).show();
-
-      case R.id.clickyClicky:
-    }
+  public void openSecondActivity() {
+    Intent intent = new Intent(this, SecondActivity.class);
+    startActivity(intent);
   }
 }

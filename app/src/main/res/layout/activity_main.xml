@@ -14,18 +14,18 @@
         android:textAllCaps="false"
         android:textColor="#4CAF50"
         android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/aboutMe"
+        app:layout_constraintBottom_toTopOf="@+id/aboutMeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.271" />
 
     <Button
-        android:id="@+id/aboutMe"
+        android:id="@+id/aboutMeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:onClick="onClickAction"
+        android:onClick="showButtonMessage"
         android:text="@string/about_me"
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,16 +37,16 @@
         tools:ignore="MissingConstraints,OnClick" />
 
     <Button
-        android:id="@+id/clickyClicky"
+        android:id="@+id/clickyClickyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="showButtonMessage"
         android:text="@string/clicky_clicky"
-        android:onClick="onClickAction"
-        app:layout_constraintBottom_toTopOf="@+id/aboutMe"
+        app:layout_constraintBottom_toTopOf="@+id/aboutMeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.526" />
+        app:layout_constraintVertical_bias="0.525" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
