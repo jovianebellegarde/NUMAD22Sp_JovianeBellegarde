@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-  // TODO: check that this updated on gitHub
   /**
    * Created to run the app.
    * @param savedInstanceState run the app.
