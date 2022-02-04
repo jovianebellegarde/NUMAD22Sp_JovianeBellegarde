@@ -12,5 +12,7 @@ public class SecondActivity extends AppCompatActivity {
     setContentView(R.layout.activity_second);
   }
 
-  public void showButtonMessage(View view) {}
+  public void showButtonMessage(View view) {
+
+  }
 }
