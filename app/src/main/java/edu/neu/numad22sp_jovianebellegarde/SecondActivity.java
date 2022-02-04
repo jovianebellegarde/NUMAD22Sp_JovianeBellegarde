@@ -11,33 +11,29 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
+  private Button buttonA, buttonB, buttonC, buttonD, buttonE, buttonF;
+  private TextView textView;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_second);
+
+    buttonA.setOnClickListener(this);
+    buttonB.setOnClickListener(this);
+    buttonC.setOnClickListener(this);
+    buttonD.setOnClickListener(this);
+    buttonE.setOnClickListener(this);
+    buttonF.setOnClickListener(this);
   }
 
-  public void chooseButton(View view) {
-    if (view.getId() == R.id.buttonA) {
-      showButtonMessage(R.id.buttonA);
+  @SuppressLint({"SetTextI18n", "NonConstantResourceId"})
+  @Override
+  public void onClick(View view) {
+    switch (view.getId()) {
+      case R.id.buttonA:
+        textView.setText("Pressed: A");
     }
-  }
-
-  public void showButtonMessage(int value) {
-    /*
-    Button button = findViewById(value);
-    TextView textView = findViewById(value);
-
-    button.setOnClickListener(new View.OnClickListener() {
-      @SuppressLint("SetTextI18n")
-      @Override
-      public void onClick(View v) {
-        textView.setText("Pressed: %s", (TextView.BufferType) button.getTag());
-      }
-    });
-
-     */
   }
 }
