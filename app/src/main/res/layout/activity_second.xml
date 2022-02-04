@@ -19,17 +19,6 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/buttonF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="228dp"
-        android:onClick="chooseButton"
-        android:text="@string/f"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
         android:id="@+id/buttonA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,19 +33,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:onClick="chooseButton"
-        android:text="@string/c"
-        app:layout_constraintBottom_toTopOf="@+id/buttonF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonB"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/buttonB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,6 +43,19 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonC"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonA"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:onClick="chooseButton"
+        android:text="@string/c"
+        app:layout_constraintBottom_toTopOf="@+id/buttonF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonB"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -91,6 +80,17 @@
         android:text="@string/e"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonF" />
+
+    <Button
+        android:id="@+id/buttonF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="228dp"
+        android:onClick="chooseButton"
+        android:text="@string/f"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

@@ -26,6 +26,7 @@ public class SecondActivity extends AppCompatActivity {
   }
 
   public void showButtonMessage(int value) {
+    /*
     Button button = findViewById(value);
     TextView textView = findViewById(value);
 
@@ -36,5 +37,7 @@ public class SecondActivity extends AppCompatActivity {
         textView.setText("Pressed: %s", (TextView.BufferType) button.getTag());
       }
     });
+
+     */
   }
 }
