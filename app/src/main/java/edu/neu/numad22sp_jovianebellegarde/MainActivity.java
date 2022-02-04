@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
    }
 
   public void openSecondActivity(View view) {
-    Intent intent = new Intent(view.getContext(), SecondActivity.class);
-    startActivity(intent);
+    startActivity(new Intent(view.getContext(), SecondActivity.class));
   }
 }
