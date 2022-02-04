@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
    * @param view to get context of message.
    * Used https://developer.android.com/guide/topics/ui/notifiers/toasts#java for Toast reference.
    */
-  public void showButtonMessage(View view) {
+  public void showToastMessage(View view) {
     CharSequence toastText = "Name: Joviane Bellegarde\nEmail: bellegarde.j@northeastern.edu";
     int duration = Toast.LENGTH_SHORT;
     Toast.makeText(view.getContext(), toastText, duration).show();

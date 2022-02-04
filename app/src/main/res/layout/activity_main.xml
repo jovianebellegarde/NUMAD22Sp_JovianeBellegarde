@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:onClick="showButtonMessage"
+        android:onClick="showToastMessage"
         android:text="@string/about_me"
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"

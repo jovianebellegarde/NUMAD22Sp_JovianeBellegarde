@@ -8,4 +8,5 @@
     <string name="b">B</string>
     <string name="a">A</string>
     <string name="e">E</string>
+    <string name="pressed">Pressed: -</string>
 </resources>
