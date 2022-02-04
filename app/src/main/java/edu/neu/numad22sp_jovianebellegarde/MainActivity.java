@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
    * Used https://developer.android.com/guide/topics/ui/notifiers/toasts#java for Toast reference.
    */
   public void showButtonMessage(View view) {
-    int id = view.getId();
     CharSequence toastText = "Name: Joviane Bellegarde\nEmail: bellegarde.j@northeastern.edu";
     int duration = Toast.LENGTH_SHORT;
     Toast.makeText(view.getContext(), toastText, duration).show();
