@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
     Toast.makeText(view.getContext(), toastText, duration).show();
    }
 
-  public void openSecondActivity() {
-    Intent intent = new Intent(this, SecondActivity.class);
+  public void openSecondActivity(View view) {
+    Intent intent = new Intent(view.getContext(), SecondActivity.class);
     startActivity(intent);
   }
 }
