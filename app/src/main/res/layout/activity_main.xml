@@ -17,21 +17,22 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/aboutMeButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
+        app:layout_constraintVertical_bias="0.382" />
 
     <Button
         android:id="@+id/aboutMeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:onClick="showToastMessage"
+        android:onClick="helloWorldActivity"
         android:text="@string/about_me"
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.768" />
@@ -40,11 +41,11 @@
         android:id="@+id/clickyClickyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="openButtonActivity"
+        android:onClick="sixButtonsActivity"
         android:text="@string/clicky_clicky"
         app:layout_constraintBottom_toTopOf="@+id/aboutMeButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainActivityTextView"
         app:layout_constraintVertical_bias="0.525" />

@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_jb_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD22Sp_JovianeBellegarde">
-        <activity android:name=".ButtonActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".NameActivity"
+            android:exported="false" />
+        <activity android:name=".ButtonActivity" />
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

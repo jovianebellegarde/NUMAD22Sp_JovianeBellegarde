@@ -20,19 +20,16 @@ public class MainActivity extends AppCompatActivity {
   /**
    * Shows the toast message when user clicks the About Me button.
    * @param view to get Context of message.
-   * Used https://developer.android.com/guide/topics/ui/notifiers/toasts#java for Toast reference.
    */
-  public void showToastMessage(View view) {
-    CharSequence toastText = "Name: Joviane Bellegarde\nEmail: bellegarde.j@northeastern.edu";
-    int duration = Toast.LENGTH_SHORT;
-    Toast.makeText(view.getContext(), toastText, duration).show();
-   }
+  public void helloWorldActivity(View view) {
+    startActivity(new Intent(view.getContext(), NameActivity.class));
+  }
 
   /**
    * Opens a new activity with 6 buttons from A to F.
    * @param view to get the Context of the message.
    */
-  public void openButtonActivity(View view) {
+  public void sixButtonsActivity(View view) {
     startActivity(new Intent(view.getContext(), ButtonActivity.class));
   }
 }
