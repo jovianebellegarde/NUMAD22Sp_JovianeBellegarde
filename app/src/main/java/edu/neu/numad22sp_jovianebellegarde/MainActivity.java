@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
    * @param view to get Context of message.
    */
   public void helloWorldActivity(View view) {
-    startActivity(new Intent(view.getContext(), NameActivity.class));
+    startActivity(new Intent(view.getContext(), AboutMeActivity.class));
   }
 
   /**
@@ -47,6 +47,6 @@ public class MainActivity extends AppCompatActivity {
    * @param view to get the Context of the message.
    */
   public void linkListActivity(View view) {
-    startActivity(new Intent(view.getContext(), LinkCollectorActivity.class));
+    startActivity(new Intent(view.getContext(), LinkListActivity.class));
   }
 }
