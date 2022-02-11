@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD22Sp_JovianeBellegarde" >
         <activity
-            android:name=".LinkCollectorActivity"
-            android:exported="false" />
-        <activity
             android:name=".NameActivity"
             android:exported="false" />
         <activity android:name=".ButtonActivity" />

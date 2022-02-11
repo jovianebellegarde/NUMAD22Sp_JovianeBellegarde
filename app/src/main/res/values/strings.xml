@@ -18,4 +18,8 @@
     <string name="joviane_bellegarde">Joviane Bellegarde</string>
     <string name="bellegarde_j_northeastern_edu">bellegarde.j@northeastern.edu</string>
     <string name="link_collector">Link Collector</string>
+    <string name="name">Name</string>
+    <string name="link">link</string>
+    <string name="enter_website_name">Enter website name</string>
+    <string name="enter_link">Enter link</string>
 </resources>
