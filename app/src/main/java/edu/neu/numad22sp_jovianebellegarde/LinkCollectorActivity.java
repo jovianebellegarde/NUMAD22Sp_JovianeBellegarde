@@ -17,7 +17,7 @@ public class LinkCollectorActivity extends AppCompatActivity {
     setContentView(R.layout.activity_link_collector);
   }
 
-  public void linkActivity(View view) {
+  public void textInput(View view) {
       //
   }
 }
