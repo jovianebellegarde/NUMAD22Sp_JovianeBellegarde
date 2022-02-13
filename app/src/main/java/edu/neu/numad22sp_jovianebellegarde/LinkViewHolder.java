@@ -12,7 +12,15 @@ public class LinkViewHolder extends RecyclerView.ViewHolder {
 
   public LinkViewHolder(@NonNull View itemView) {
     super(itemView);
-    //this.name = itemView.findViewById(R.id.link_name);
-    //this.url = itemView.findViewById(R.id.link_url);
+    this.name = itemView.findViewById(R.id.link_name);
+    this.url = itemView.findViewById(R.id.link_url);
+
+    itemView.setOnClickListener(new View.OnClickListener() {
+
+      @Override
+      public void onClick(View v) {
+
+      }
+    });
   }
 }
