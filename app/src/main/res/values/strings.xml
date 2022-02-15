@@ -21,4 +21,6 @@
     <string name="link_name">Link Name</string>
     <string name="link_url">Link Url</string>
     <string name="locationButton">Location</string>
+    <string name="get_location">Get Location</string>
+    <string name="tap_the_button_to_get_current_location">Tap the button to get current location.</string>
 </resources>

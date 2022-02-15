@@ -10,7 +10,6 @@ import android.os.Bundle;
 //  Display these 2 numbers; don't call Google Maps to display the location
 
 public class LocationActivity extends AppCompatActivity {
-
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
