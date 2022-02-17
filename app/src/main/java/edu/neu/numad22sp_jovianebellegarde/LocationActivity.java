@@ -2,17 +2,11 @@ package edu.neu.numad22sp_jovianebellegarde;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.pm.PackageManager;
-import android.os.Build;
+import android.location.LocationManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -25,32 +19,25 @@ import android.widget.Toast;
 
 public class LocationActivity extends AppCompatActivity {
   private static final int PERMISSION = 1;
+  private LocationManager locationManager;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_location);
 
-    Button locationButton = findViewById(R.id.locationButton);
+    Button locationButton = findViewById(R.id.getLocationButton);
     TextView locationTextView = findViewById(R.id.locationTextView);
 
     // Aashi suggested to use this class instead of ActivityResultLauncher:
     // Prob only need find location since both latitude and longitude are needed
     // https://developer.android.com/reference/androidx/core/app/ActivityCompat
-    locationButton.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        if (ActivityCompat.checkSelfPermission(v.getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-          Toast.makeText(LocationActivity.this, "Permission already granted.", Toast.LENGTH_LONG).show();
-        } else {
-          LocationActivity.this.getLocationPermission(v);
-        }
-      }
-    });
+    //locationButton.setOnClickListener(this::getLocationPermission);
   }
 
   public void getLocationPermission(View view) {
+    Toast.makeText(view.getContext(), "helooooo", Toast.LENGTH_LONG).show();
+
     ActivityResultLauncher<String[]> locationPermissionRequest =
             registerForActivityResult(new ActivityResultContracts
                             .RequestMultiplePermissions(), result -> {
@@ -60,10 +47,13 @@ public class LocationActivity extends AppCompatActivity {
                               Manifest.permission.ACCESS_COARSE_LOCATION,false);
                       if (fineLocationGranted != null && fineLocationGranted) {
                         // Precise location access granted.
+                        Toast.makeText(view.getContext(), "fineLocation", Toast.LENGTH_LONG).show();
                       } else if (coarseLocationGranted != null && coarseLocationGranted) {
                         // Only approximate location access granted.
+                        Toast.makeText(view.getContext(), "courseLocation", Toast.LENGTH_LONG).show();
                       } else {
                         // No location access granted.
+                        Toast.makeText(view.getContext(),"Denied", Toast.LENGTH_LONG).show();
                       }
                     }
             );
@@ -78,4 +68,20 @@ public class LocationActivity extends AppCompatActivity {
             Manifest.permission.ACCESS_COARSE_LOCATION
     });
   }
- }
+
+  public void getPreciseLocation(View view) {
+
+  }
+
+  public void getCoarseLocation(View view) {
+
+  }
+
+  public double getLatitude(View view) {
+    return 1.0;
+  }
+
+  public double getLongitude(View view) {
+    return 1.0;
+  }
+}

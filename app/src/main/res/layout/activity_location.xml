@@ -10,11 +10,12 @@
             android:text="@string/get_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/locationButton"
+            android:id="@+id/getLocationButton"
+            android:onClick="getLocationPermission"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintVertical_bias="0.592"
             app:layout_constraintTop_toBottomOf="@+id/locationTextView" />
 
@@ -30,7 +31,35 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.279"
-            app:layout_constraintBottom_toTopOf="@+id/locationButton" />
+            app:layout_constraintBottom_toTopOf="@+id/getLocationButton" />
+
+    <TextView
+            android:text="@string/latitude_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/latitudeTextView"
+            android:textColor="@color/black"
+            android:onClick="getLatitude"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toBottomOf="@+id/locationTextView"
+            app:layout_constraintBottom_toTopOf="@+id/longitudeTextView" />
+
+    <TextView
+            android:text="@string/longitude_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/longitudeTextView"
+            android:textColor="@color/black"
+            android:onClick="getLongitude"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.564"
+            app:layout_constraintTop_toBottomOf="@+id/latitudeTextView"
+            app:layout_constraintBottom_toTopOf="@+id/getLocationButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
