@@ -1,10 +1,8 @@
 package edu.neu.numad22sp_jovianebellegarde;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 // TODO Add a new activity - done
 //  Ask for permission only when the user uses this feature, not on installation
@@ -18,7 +16,8 @@ public class LocationActivity extends AppCompatActivity {
     setContentView(R.layout.activity_location);
   }
 
+  // Aashi suggested to use this class instead: https://developer.android.com/reference/androidx/core/app/ActivityCompat
   public void showLocation(View view) {
-
+    // TODO leaving implementation to Thursday morning
   }
 }
