@@ -1,5 +1,7 @@
 package edu.neu.numad22sp_jovianebellegarde;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -49,22 +51,31 @@ public class LocationActivity extends AppCompatActivity {
   }
 
   public void getLocationPermission(View view) {
-    Log.d("TAG", "getLocationPermission:" + ActivityCompat.shouldShowRequestPermissionRationale((Activity) view.getContext(), Manifest.permission.ACCESS_FINE_LOCATION));
-    if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) view.getContext(), Manifest.permission.ACCESS_FINE_LOCATION)) {
-      Toast.makeText(view.getContext(), "YEsssss", Toast.LENGTH_LONG).show();
-      new AlertDialog.Builder(view.getContext())
-              .setMessage("This app needs access to current device location.")
-              .setTitle("Location Permission Access")
-              .setPositiveButton("Approve Access", (dialog, which) ->
-                      ActivityCompat
-                              .requestPermissions((Activity) view.getContext(),
-                                      new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION))
-              .setNegativeButton("Deny Access", (dialog, which) -> dialog.cancel()).create().show();
+    ActivityResultLauncher<String[]> locationPermissionRequest =
+            registerForActivityResult(new ActivityResultContracts
+                            .RequestMultiplePermissions(), result -> {
+                      Boolean fineLocationGranted = result.getOrDefault(
+                              Manifest.permission.ACCESS_FINE_LOCATION, false);
+                      Boolean coarseLocationGranted = result.getOrDefault(
+                              Manifest.permission.ACCESS_COARSE_LOCATION,false);
+                      if (fineLocationGranted != null && fineLocationGranted) {
+                        // Precise location access granted.
+                      } else if (coarseLocationGranted != null && coarseLocationGranted) {
+                        // Only approximate location access granted.
+                      } else {
+                        // No location access granted.
+                      }
+                    }
+            );
 
-    } else {
-      ActivityCompat.requestPermissions((Activity) view.getContext(),
-              new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION);
-      Toast.makeText(view.getContext(), "WHYYYY", Toast.LENGTH_LONG).show();
-    }
+// ...
+
+// Before you perform the actual permission request, check whether your app
+// already has the permissions, and whether your app needs to show a permission
+// rationale dialog. For more details, see Request permissions.
+    locationPermissionRequest.launch(new String[] {
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+    });
   }
  }
