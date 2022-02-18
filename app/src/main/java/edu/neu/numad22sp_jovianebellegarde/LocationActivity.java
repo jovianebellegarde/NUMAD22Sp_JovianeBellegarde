@@ -1,5 +1,7 @@
 package edu.neu.numad22sp_jovianebellegarde;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -69,6 +71,8 @@ public class LocationActivity extends AppCompatActivity implements ActivityCompa
       case PERMISSION:
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
           // call for precise location (latitude and longitude)
+          //Toast.makeText(LocationActivity.this, "switch statement", Toast.LENGTH_SHORT).show();
+          activityResultLauncher();
         } else {
           // Explain to the user that the feature is unavailable because
           // the features requires a permission that the user has denied.
@@ -77,5 +81,9 @@ public class LocationActivity extends AppCompatActivity implements ActivityCompa
           // their decision.
         }
     }
+  }
+
+  public void activityResultLauncher() {
+    Toast.makeText(LocationActivity.this, "activity result launcher", Toast.LENGTH_SHORT).show();
   }
 }
