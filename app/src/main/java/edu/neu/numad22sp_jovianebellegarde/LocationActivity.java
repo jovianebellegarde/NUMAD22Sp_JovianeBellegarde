@@ -1,7 +1,5 @@
 package edu.neu.numad22sp_jovianebellegarde;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -10,8 +8,11 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 // TODO Add a new activity - done
@@ -19,8 +20,11 @@ import android.widget.Toast;
 //  Display location (latitude and longitude) from the location sensor
 //  Display these 2 numbers; don't call Google Maps to display the location
 
-public class LocationActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
+public class LocationActivity extends AppCompatActivity implements
+        ActivityCompat.OnRequestPermissionsResultCallback, LocationListener {
   private final int PERMISSION = 777;
+  TextView latitudeTextView;
+  TextView longitudeTextView;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,8 @@ public class LocationActivity extends AppCompatActivity implements ActivityCompa
     // Prob only need find location since both latitude and longitude are needed
     // https://developer.android.com/reference/androidx/core/app/ActivityCompat
     Button locationButton = findViewById(R.id.button_get_location);
+    //latitudeTextView.findViewById(R.id.latitudeTextView);
+    //longitudeTextView.findViewById(R.id.longitudeTextView);
     locationButton.setOnClickListener(v -> activityCompatCheckSelfPermission());
   }
 
@@ -79,11 +85,24 @@ public class LocationActivity extends AppCompatActivity implements ActivityCompa
           // At the same time, respect the user's decision. Don't link to
           // system settings in an effort to convince the user to change
           // their decision.
+          new AlertDialog.Builder(this)
+                  .setTitle("Feature Unavailable")
+                  .setMessage("This feature is unavailable because access to location was denied.")
+                  .create().show();
         }
     }
   }
 
   public void activityResultLauncher() {
     Toast.makeText(LocationActivity.this, "activity result launcher", Toast.LENGTH_SHORT).show();
+    //Location location = new Location(Manifest.permission.LOCATION_HARDWARE);
+    //onLocationChanged(location);
+  }
+
+  @SuppressLint("SetTextI18n")
+  @Override
+  public void onLocationChanged(@NonNull Location location) {
+    latitudeTextView.setText("Latitude:" + location.getLatitude());
+    longitudeTextView.setText("Longitude:" + location.getLongitude());
   }
 }
