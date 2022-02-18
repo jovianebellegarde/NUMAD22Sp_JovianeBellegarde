@@ -43,8 +43,8 @@ public class LocationActivity extends AppCompatActivity implements
     } else {
       requestLocationPermission();
     }
-    // locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-    // location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+    locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+    location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
     Button locationButton = findViewById(R.id.button_get_location);
     latitudeTextView = findViewById(R.id.latitude_textview);
     longitudeTextView = findViewById(R.id.longitude_textview);
@@ -76,7 +76,7 @@ public class LocationActivity extends AppCompatActivity implements
     super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     if (requestCode == PERMISSION) {
       if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-        Location location = new Location(Manifest.permission.ACCESS_FINE_LOCATION);
+        //location = new Location(Manifest.permission.ACCESS_FINE_LOCATION);
         onLocationChanged(location);
       } else {
         new AlertDialog.Builder(this)
