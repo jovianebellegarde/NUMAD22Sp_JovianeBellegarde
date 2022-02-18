@@ -32,12 +32,7 @@ public class LocationActivity extends AppCompatActivity
     // Prob only need find location since both latitude and longitude are needed
     // https://developer.android.com/reference/androidx/core/app/ActivityCompat
     locationButton = findViewById(R.id.button_get_location);
-    locationButton.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        showLocationPreview();
-      }
-    });
+    locationButton.setOnClickListener(v -> showLocationPreview());
   }
 
   public void showLocationPreview() {
