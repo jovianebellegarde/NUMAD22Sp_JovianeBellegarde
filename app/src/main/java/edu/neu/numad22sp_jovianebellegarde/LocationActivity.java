@@ -1,16 +1,14 @@
 package edu.neu.numad22sp_jovianebellegarde;
 
-import com.google.android.material.snackbar.Snackbar;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -19,10 +17,8 @@ import android.widget.Toast;
 //  Display location (latitude and longitude) from the location sensor
 //  Display these 2 numbers; don't call Google Maps to display the location
 
-public class LocationActivity extends AppCompatActivity
-    implements ActivityCompat.OnRequestPermissionsResultCallback {
-  private Button locationButton;
-  private int PERMISSION = 1;
+public class LocationActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
+  private final int PERMISSION = 777;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +27,11 @@ public class LocationActivity extends AppCompatActivity
     // Aashi suggested to use this class instead of ActivityResultLauncher:
     // Prob only need find location since both latitude and longitude are needed
     // https://developer.android.com/reference/androidx/core/app/ActivityCompat
-    locationButton = findViewById(R.id.button_get_location);
-    locationButton.setOnClickListener(v -> showLocationPreview());
+    Button locationButton = findViewById(R.id.button_get_location);
+    locationButton.setOnClickListener(v -> activityCompatCheckSelfPermission());
   }
 
-  public void showLocationPreview() {
+  public void activityCompatCheckSelfPermission() {
     if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
             == PackageManager.PERMISSION_GRANTED) {
       Toast.makeText(LocationActivity.this, "Permission Granted", Toast.LENGTH_LONG)
@@ -55,12 +51,31 @@ public class LocationActivity extends AppCompatActivity
               .setPositiveButton("Accept Access", (dialog, which) ->
                       ActivityCompat.requestPermissions(LocationActivity.this,
                       new String[] {Manifest.permission.ACCESS_FINE_LOCATION},
-                      PERMISSION)).setNegativeButton("Cancel", (dialog, which) ->
+                      PERMISSION))
+              .setNegativeButton("Cancel", (dialog, which) ->
               dialog.cancel()).create().show();
     } else {
       ActivityCompat.requestPermissions(this,
               new String[] {Manifest.permission.ACCESS_FINE_LOCATION},
               PERMISSION);
+    }
+  }
+
+  @SuppressLint("MissingSuperCall")
+  @Override
+  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                         @NonNull int[] grantResults) {
+    switch(requestCode) {
+      case PERMISSION:
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+          // call for precise location (latitude and longitude)
+        } else {
+          // Explain to the user that the feature is unavailable because
+          // the features requires a permission that the user has denied.
+          // At the same time, respect the user's decision. Don't link to
+          // system settings in an effort to convince the user to change
+          // their decision.
+        }
     }
   }
 }
