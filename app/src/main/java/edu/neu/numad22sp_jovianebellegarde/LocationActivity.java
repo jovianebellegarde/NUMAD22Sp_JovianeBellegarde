@@ -22,9 +22,8 @@ import android.widget.Toast;
 //  Display location (latitude and longitude) from the location sensor
 //  Display these 2 numbers; don't call Google Maps to display the location
 
-public class LocationActivity extends AppCompatActivity implements LocationListener {
-  private static final int PERMISSION = 1;
-
+public class LocationActivity extends AppCompatActivity {
+  private Button locationButton;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +32,16 @@ public class LocationActivity extends AppCompatActivity implements LocationListe
     // Aashi suggested to use this class instead of ActivityResultLauncher:
     // Prob only need find location since both latitude and longitude are needed
     // https://developer.android.com/reference/androidx/core/app/ActivityCompat
-    //locationButton.setOnClickListener(this::getLocationPermission);
-
+    locationButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        getLocationPermission(v);
+      }
+    });
 
   }
 
   public void getLocationPermission(View view) {
-  }
-
-  @Override
-  public void onLocationChanged(@NonNull Location location) {
+    Toast.makeText(this, "getLocationPermission", Toast.LENGTH_LONG).show();
   }
 }
