@@ -35,27 +35,26 @@
             app:layout_constraintBottom_toTopOf="@+id/button_get_location" />
 
     <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/latitudeTextView"
+            android:id="@+id/latitude_textview"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintTop_toBottomOf="@+id/buttonInstructionsTextView"
-            app:layout_constraintBottom_toTopOf="@+id/longitudeTextView" />
+            app:layout_constraintBottom_toTopOf="@+id/longitude_textview" />
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/longitudeTextView"
+            android:id="@+id/longitude_textview"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintVertical_bias="0.564"
-            app:layout_constraintTop_toBottomOf="@+id/latitudeTextView"
+            app:layout_constraintTop_toBottomOf="@+id/latitude_textview"
             app:layout_constraintBottom_toTopOf="@+id/button_get_location" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

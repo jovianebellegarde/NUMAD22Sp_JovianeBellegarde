@@ -34,8 +34,8 @@ public class LocationActivity extends AppCompatActivity implements
     // Prob only need find location since both latitude and longitude are needed
     // https://developer.android.com/reference/androidx/core/app/ActivityCompat
     Button locationButton = findViewById(R.id.button_get_location);
-    //latitudeTextView.findViewById(R.id.latitudeTextView);
-    //longitudeTextView.findViewById(R.id.longitudeTextView);
+    latitudeTextView = findViewById(R.id.latitude_textview);
+    longitudeTextView = findViewById(R.id.longitude_textview);
     locationButton.setOnClickListener(v -> activityCompatCheckSelfPermission());
   }
 
@@ -95,8 +95,8 @@ public class LocationActivity extends AppCompatActivity implements
 
   public void activityResultLauncher() {
     Toast.makeText(LocationActivity.this, "activity result launcher", Toast.LENGTH_SHORT).show();
-    //Location location = new Location(Manifest.permission.LOCATION_HARDWARE);
-    //onLocationChanged(location);
+    Location location = new Location(Manifest.permission.LOCATION_HARDWARE);
+    onLocationChanged(location);
   }
 
   @SuppressLint("SetTextI18n")
