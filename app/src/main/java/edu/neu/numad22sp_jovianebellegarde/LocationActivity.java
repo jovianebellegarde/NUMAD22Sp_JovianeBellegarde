@@ -102,7 +102,7 @@ public class LocationActivity extends AppCompatActivity implements
   @SuppressLint("SetTextI18n")
   @Override
   public void onLocationChanged(@NonNull Location location) {
-    latitudeTextView.setText("Latitude:" + location.getLatitude());
-    longitudeTextView.setText("Longitude:" + location.getLongitude());
+    latitudeTextView.setText("Latitude: " + location.getLatitude());
+    longitudeTextView.setText("Longitude: " + location.getLongitude());
   }
 }
