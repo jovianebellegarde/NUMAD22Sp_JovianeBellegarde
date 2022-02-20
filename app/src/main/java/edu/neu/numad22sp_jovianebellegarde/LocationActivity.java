@@ -78,10 +78,11 @@ public class LocationActivity extends AppCompatActivity implements ActivityCompa
    * User response is passed through the permission dialog with the request code that was defined.
    * Method invoked by LocationListener.
    */
-  @SuppressLint("MissingSuperCall")
+ 
   @Override
   public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                          @NonNull int[] grantResults) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     if (requestCode == PERMISSION) {
       if (grantResults.length <= 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
         new AlertDialog.Builder(this)
@@ -94,7 +95,7 @@ public class LocationActivity extends AppCompatActivity implements ActivityCompa
                 != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-          ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION);
+          ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION);
           return;
         }
         location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
