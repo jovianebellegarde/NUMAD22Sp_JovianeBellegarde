@@ -21,13 +21,8 @@ import android.widget.Toast;
  * Referred for code flow: https://developer.android.com/training/permissions/requesting
  * https://developer.android.com/reference/androidx/core/app/ActivityCompat
  */
-public class LocationActivity extends AppCompatActivity implements
-        ActivityCompat.OnRequestPermissionsResultCallback, LocationListener {
+public class LocationActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback, LocationListener {
   private final int PERMISSION = 777;
-  TextView latitudeTextView;
-  TextView longitudeTextView;
-  Location location;
-  LocationManager locationManager;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +82,7 @@ public class LocationActivity extends AppCompatActivity implements
                                          @NonNull int[] grantResults) {
     if (requestCode == PERMISSION) {
       if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
@@ -96,7 +91,7 @@ public class LocationActivity extends AppCompatActivity implements
 
           return;
         }
-        location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         onLocationChanged(location);
       } else {
         new AlertDialog.Builder(this)
@@ -110,8 +105,8 @@ public class LocationActivity extends AppCompatActivity implements
   @SuppressLint("SetTextI18n")
   @Override
   public void onLocationChanged(@NonNull Location location) {
-    longitudeTextView = findViewById(R.id.longitude_textview);
-    latitudeTextView = findViewById(R.id.latitude_textview);
+    TextView longitudeTextView = findViewById(R.id.longitude_textview);
+    TextView latitudeTextView = findViewById(R.id.latitude_textview);
     latitudeTextView.setText("Latitude: " + location.getLatitude());
     longitudeTextView.setText("Longitude: " + location.getLongitude());
   }
