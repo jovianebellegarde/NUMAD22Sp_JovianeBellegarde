@@ -64,8 +64,9 @@ public class LocationActivity extends AppCompatActivity implements ActivityCompa
               .setPositiveButton("Accept Access", (dialog, which) ->
                       ActivityCompat.requestPermissions(this,
                               new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION))
-              .setNegativeButton("Cancel", (dialog, which) ->
-                      dialog.cancel()).create().show();
+              .setNegativeButton("Cancel", (dialog, which) -> dialog.cancel())
+              .create()
+              .show();
     } else {
       ActivityCompat.requestPermissions(this,
               new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION);

@@ -34,6 +34,7 @@ public class LinkViewAdapter extends RecyclerView.Adapter<LinkViewAdapter.LinkVi
       });
     }
   }
+
   @NonNull
   @Override
   public LinkViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,7 +45,9 @@ public class LinkViewAdapter extends RecyclerView.Adapter<LinkViewAdapter.LinkVi
 
   @Override
   public void onBindViewHolder(@NonNull LinkViewHolder holder, int position) {
-
+    Link iteration = cardList.get(position);
+    holder.name.setText(iteration.getName());
+    holder.url.setText(iteration.getUrl());
   }
 
   @Override
