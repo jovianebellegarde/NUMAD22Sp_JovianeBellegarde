@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,16 +34,20 @@ public class LocationActivity extends AppCompatActivity implements
     // Aashi suggested to use this class instead of ActivityResultLauncher:
     // Prob only need find location since both latitude and longitude are needed
     // https://developer.android.com/reference/androidx/core/app/ActivityCompat
-    Button locationButton = findViewById(R.id.button_get_location);
-    latitudeTextView = findViewById(R.id.latitude_textview);
-    longitudeTextView = findViewById(R.id.longitude_textview);
-    locationButton.setOnClickListener(v -> activityCompatCheckSelfPermission());
+    // Button locationButton = findViewById(R.id.button_get_location);
+    // latitudeTextView = findViewById(R.id.latitude_textview);
+    // longitudeTextView = findViewById(R.id.longitude_textview);
+    // locationButton.setOnClickListener(v -> activityCompatCheckSelfPermission());
   }
 
-  public void activityCompatCheckSelfPermission() {
-    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+  public void getAccessPermission(View view) {
+    activityCompatCheckSelfPermission(view);
+  }
+
+  public void activityCompatCheckSelfPermission(View view) {
+    if (ActivityCompat.checkSelfPermission(view.getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
             == PackageManager.PERMISSION_GRANTED) {
-      Toast.makeText(LocationActivity.this, "Permission Granted", Toast.LENGTH_LONG)
+      Toast.makeText(view.getContext(), "Permission Granted", Toast.LENGTH_LONG)
               .show();
       // call location method
     } else {
@@ -102,6 +107,8 @@ public class LocationActivity extends AppCompatActivity implements
   @SuppressLint("SetTextI18n")
   @Override
   public void onLocationChanged(@NonNull Location location) {
+    latitudeTextView = findViewById(R.id.latitude_textview);
+    longitudeTextView = findViewById(R.id.longitude_textview);
     latitudeTextView.setText("Latitude: " + location.getLatitude());
     longitudeTextView.setText("Longitude: " + location.getLongitude());
   }
