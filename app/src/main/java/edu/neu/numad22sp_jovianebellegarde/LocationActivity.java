@@ -24,6 +24,7 @@ import android.widget.Toast;
  */
 public class LocationActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback, LocationListener {
   private final int PERMISSION = 777;
+  Location location;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +97,7 @@ public class LocationActivity extends AppCompatActivity implements ActivityCompa
           ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION);
           return;
         }
-        Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         onLocationChanged(location);
       }
     }
