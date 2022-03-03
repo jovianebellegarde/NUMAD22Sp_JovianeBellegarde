@@ -25,4 +25,5 @@
     <string name="tap_the_button_to_get_current_location">Tap the button to get current location.</string>
     <string name="latitude_textview">LatitudeTextView</string>
     <string name="longitude_textview">LongitudeTextView</string>
+    <string name="at_your_service">At Your Service</string>
 </resources>
