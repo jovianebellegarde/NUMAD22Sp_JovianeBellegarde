@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 /**
  * Referred for code flow: https://developer.android.com/training/location/permissions
- * https://developer.android.com/reference/androidx/core/app/ActivityCompat
+ * https://developer.android.com/reference/androidx/core/app/Acti<3vityCompat
  * https://developer.android.com/training/permissions/requesting
  */
 public class LocationActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback, LocationListener {
