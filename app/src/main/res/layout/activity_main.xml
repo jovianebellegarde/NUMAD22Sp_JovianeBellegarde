@@ -29,13 +29,14 @@
             android:layout_marginTop="32dp"
             android:onClick="helloWorldActivity"
             android:text="@string/about_me"
+            android:textAllCaps="false"
             app:iconTint="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintVertical_bias="0.938"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <Button
             android:id="@+id/clickyButton"
@@ -43,6 +44,7 @@
             android:layout_height="wrap_content"
             android:onClick="sixButtonsActivity"
             android:text="@string/clicky_clicky"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +58,7 @@
             android:layout_height="wrap_content"
             android:text="@string/link_collector"
             android:onClick="linkListActivity"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="OnClick"
@@ -70,11 +73,25 @@
             android:layout_height="wrap_content"
             android:onClick="locationActivity"
             android:id="@+id/button2"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintVertical_bias="0.614"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintTop_toBottomOf="@+id/clickyButton"
+            app:layout_constraintBottom_toTopOf="@+id/button" />
+
+    <Button
+            android:text="At Your Service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.775"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toBottomOf="@+id/button2"
             app:layout_constraintBottom_toTopOf="@+id/aboutMeButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
