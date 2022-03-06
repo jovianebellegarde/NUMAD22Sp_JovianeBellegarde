@@ -19,4 +19,16 @@ public class AtYourServiceActivity extends AppCompatActivity {
     setContentView(view);
   }
 
+  public void getData(View view) {
+
+    Runnable runnable = () -> {
+      synchronized (this) {
+        try {
+          // code goes in here to request HTTP
+        } catch (Exception e) {
+          // fill in log errors here
+        }
+      }
+    };
+  }
 }
