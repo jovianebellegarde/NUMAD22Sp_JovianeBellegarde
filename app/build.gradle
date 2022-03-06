@@ -3,6 +3,11 @@ plugins {
 }
 
 android {
+
+    buildFeatures {
+        viewBinding true
+    }
+
     signingConfigs {
         debug {
             storeFile file('/Users/jovianebellegarde/AndroidStudioProjects/NUMAD22Sp_JovianeBellegarde/app/key store/JBKeystore')
