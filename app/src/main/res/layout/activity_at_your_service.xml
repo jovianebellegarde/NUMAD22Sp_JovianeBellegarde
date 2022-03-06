@@ -4,15 +4,4 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AtYourServiceActivity">
-
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/editTextTextPersonName"
-            tools:layout_editor_absoluteY="167dp"
-            tools:layout_editor_absoluteX="112dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        tools:context=".AtYourServiceActivity"/>
