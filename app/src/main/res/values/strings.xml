@@ -28,4 +28,5 @@
     <string name="at_your_service">At Your Service</string>
     <string name="get_data">Get Data</string>
     <string name="enter_choice">Enter choice</string>
+    <string name="enter_an_identifier">enter an identifier</string>
 </resources>
