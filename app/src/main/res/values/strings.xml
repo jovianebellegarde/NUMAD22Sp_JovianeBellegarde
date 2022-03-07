@@ -27,4 +27,5 @@
     <string name="longitude_textview">LongitudeTextView</string>
     <string name="at_your_service">At Your Service</string>
     <string name="get_data">Get Data</string>
+    <string name="enter_choice">Enter choice</string>
 </resources>
