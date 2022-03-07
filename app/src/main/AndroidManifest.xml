@@ -14,9 +14,6 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.NUMAD22Sp_JovianeBellegarde">
         <activity
-                android:name=".AtYourServiceActivity"
-                android:exported="false" />
-        <activity
                 android:name=".LocationActivity"
                 android:exported="false" />
         <activity
