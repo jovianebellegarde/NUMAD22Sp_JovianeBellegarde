@@ -11,8 +11,4 @@ public class AtYourServiceActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_at_your_service);
   }
-
-
-
 }
-
