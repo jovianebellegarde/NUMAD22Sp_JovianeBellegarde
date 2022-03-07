@@ -11,7 +11,7 @@ public class AtYourServiceActivity extends AppCompatActivity {
 
   private static final String TAG = "AtYourServiceActivity";
   private final Handler editTextHandler = new Handler();
-  EditText editText;
+  protected EditText editText;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,9 @@ public class AtYourServiceActivity extends AppCompatActivity {
 
     @Override
     public void run() {
-      //
+      // try catch block -> https request here
+      // user input for choice of json file here
+      // send updates back to the main thread
     }
   }
 }

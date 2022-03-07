@@ -24,7 +24,7 @@ import android.widget.Toast;
  */
 public class LocationActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback, LocationListener {
   private final int PERMISSION = 777;
-  Location location;
+  protected Location location;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
