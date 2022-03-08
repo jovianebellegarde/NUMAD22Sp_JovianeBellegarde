@@ -9,27 +9,25 @@ import android.widget.EditText;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 import androidx.appcompat.app.AppCompatActivity;
-import edu.neu.numad22sp_jovianebellegarde.databinding.ActivityMainBinding;
+import edu.neu.numad22sp_jovianebellegarde.databinding.ActivityAtYourServiceBinding;
 
 public class AtYourServiceActivity extends AppCompatActivity {
 
   private static final String TAG = "AtYourServiceActivity";
-  private ActivityMainBinding binding;
+  private ActivityAtYourServiceBinding binding;
   private final Handler editTextHandler = new Handler();
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    binding = ActivityMainBinding.inflate(getLayoutInflater());
+    binding = ActivityAtYourServiceBinding.inflate(getLayoutInflater());
     View view = binding.getRoot();
     setContentView(view);
-    EditText editText = findViewById(R.id.editText);
   }
 
   // runnable thread
@@ -52,7 +50,8 @@ public class AtYourServiceActivity extends AppCompatActivity {
       try {
         URL url = new URL("https://ffxivcollect.com/api/hairstyles");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        BufferedReader bufferedReader =
+            new BufferedReader(new InputStreamReader(connection.getInputStream()));
         String string;
 
         while ((string = bufferedReader.readLine()) != null) {
@@ -69,3 +68,21 @@ public class AtYourServiceActivity extends AppCompatActivity {
     }
   }
 }
+
+// import androidx.appcompat.app.AppCompatActivity;
+//
+//
+//
+// import android.os.Bundle;
+//
+//
+//
+// public class AtYourServiceActivity extends AppCompatActivity {
+//
+//
+//  @Override
+//  protected void onCreate(Bundle savedInstanceState) {
+//    super.onCreate(savedInstanceState);
+//    setContentView(R.layout.activity_at_your_service);
+//  }
+// }
