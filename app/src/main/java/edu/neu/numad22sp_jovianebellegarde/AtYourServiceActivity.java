@@ -2,21 +2,30 @@ package edu.neu.numad22sp_jovianebellegarde;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import org.json.JSONObject;
+
+import java.net.URL;
+
 import androidx.appcompat.app.AppCompatActivity;
+import edu.neu.numad22sp_jovianebellegarde.databinding.ActivityMainBinding;
 
 public class AtYourServiceActivity extends AppCompatActivity {
 
   private static final String TAG = "AtYourServiceActivity";
+  private ActivityMainBinding binding;
   private final Handler editTextHandler = new Handler();
   protected EditText editText;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_at_your_service);
+    binding = ActivityMainBinding.inflate(getLayoutInflater());
+    View view = binding.getRoot();
+    setContentView(view);
     editText = findViewById(R.id.edit_text);
   }
 
@@ -32,6 +41,14 @@ public class AtYourServiceActivity extends AppCompatActivity {
       // try catch block -> https request here
       // user input for choice of json file here
       // send updates back to the main thread
+      JSONObject jsonObject = new JSONObject();
+
+      // this is just one hairstyle
+      try {
+        URL url = new URL("https://ffxivcollect.com/api/hairstyles/419");
+      } catch (Exception e) {
+        Log.e(TAG, "Exception found");
+      }
     }
   }
 }
