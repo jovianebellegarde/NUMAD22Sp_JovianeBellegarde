@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 public class ButtonActivity extends AppCompatActivity implements View.OnClickListener {
   private TextView secondActivityTextView;
-  protected Button buttonA, buttonB, buttonC, buttonD, buttonE, buttonF;
 
   /**
    * Created to run the new activity with the 6 buttons.
@@ -19,19 +18,19 @@ public class ButtonActivity extends AppCompatActivity implements View.OnClickLis
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_button);
 
-    this.buttonA = findViewById(R.id.buttonA);
-    this.buttonB = findViewById(R.id.buttonB);
-    this.buttonC = findViewById(R.id.buttonC);
-    this.buttonD = findViewById(R.id.buttonD);
-    this.buttonE = findViewById(R.id.buttonE);
-    this.buttonF = findViewById(R.id.buttonF);
+    Button buttonA = findViewById(R.id.buttonA);
+    Button buttonB = findViewById(R.id.buttonB);
+    Button buttonC = findViewById(R.id.buttonC);
+    Button buttonD = findViewById(R.id.buttonD);
+    Button buttonE = findViewById(R.id.buttonE);
+    Button buttonF = findViewById(R.id.buttonF);
 
-    this.buttonA.setOnClickListener(ButtonActivity.this);
-    this.buttonB.setOnClickListener(ButtonActivity.this);
-    this.buttonC.setOnClickListener(ButtonActivity.this);
-    this.buttonD.setOnClickListener(ButtonActivity.this);
-    this.buttonE.setOnClickListener(ButtonActivity.this);
-    this.buttonF.setOnClickListener(ButtonActivity.this);
+    buttonA.setOnClickListener(ButtonActivity.this);
+    buttonB.setOnClickListener(ButtonActivity.this);
+    buttonC.setOnClickListener(ButtonActivity.this);
+    buttonD.setOnClickListener(ButtonActivity.this);
+    buttonE.setOnClickListener(ButtonActivity.this);
+    buttonF.setOnClickListener(ButtonActivity.this);
 
     this.secondActivityTextView = findViewById(R.id.buttonActivityTextView);
   }

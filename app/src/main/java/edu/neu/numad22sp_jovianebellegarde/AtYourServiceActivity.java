@@ -22,7 +22,6 @@ public class AtYourServiceActivity extends AppCompatActivity {
   private static final String TAG = "AtYourServiceActivity";
   private ActivityMainBinding binding;
   private final Handler editTextHandler = new Handler();
-  protected EditText editText;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class AtYourServiceActivity extends AppCompatActivity {
     binding = ActivityMainBinding.inflate(getLayoutInflater());
     View view = binding.getRoot();
     setContentView(view);
-    editText = findViewById(R.id.edit_text);
+    EditText editText = findViewById(R.id.editText);
   }
 
   // runnable thread
