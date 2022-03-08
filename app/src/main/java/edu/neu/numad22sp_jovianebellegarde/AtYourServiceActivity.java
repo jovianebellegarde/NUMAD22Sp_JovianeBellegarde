@@ -62,7 +62,7 @@ public class AtYourServiceActivity extends AppCompatActivity {
         bufferedReader.close();
 
         if (!stringBuilder.toString().isEmpty()) {
-          // fill in rest here
+          JSONObject jsonObject = new JSONObject(stringBuilder.toString());
         }
       } catch (Exception e) {
         Log.e(TAG, "Exception found");
