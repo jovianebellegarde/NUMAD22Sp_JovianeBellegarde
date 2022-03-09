@@ -6,6 +6,8 @@ import edu.neu.numad22sp_jovianebellegarde.databinding.ActivityAtYourServiceBind
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 
@@ -30,7 +32,15 @@ public class AtYourServiceActivity extends AppCompatActivity {
   @SuppressLint("StaticFieldLeak")
   private static ActivityAtYourServiceBinding binding;
 
-  public static final Handler handler = new Handler();
+  public static Handler handler = new Handler(Looper.getMainLooper()) {
+    @Override
+    public void handleMessage(Message msg) {
+      Bundle bundle = msg.getData();
+      String string = bundle.getString("results");
+      binding.textView.setText(string);
+    }
+  };
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +109,11 @@ public class AtYourServiceActivity extends AppCompatActivity {
         Log.e(TAG, "JSONException");
         e.printStackTrace();
       }
+      Message msg = handler.obtainMessage();
+      Bundle bundle = new Bundle();
+      bundle.putString("results", binding.editText.getText().toString());
+      msg.setData(bundle);
+      handler.sendMessage(msg);
 
       //      // try catch block -> https request here
       //      // user input for choice of json file here
