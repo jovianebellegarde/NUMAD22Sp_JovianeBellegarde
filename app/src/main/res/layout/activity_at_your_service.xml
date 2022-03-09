@@ -7,12 +7,12 @@
         tools:context=".AtYourServiceActivity">
 
     <Button
-            android:text="@string/get_data"
+            android:text="@string/search_hairstyles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button3"
             android:textAllCaps="false"
-            android:onClick="getData"
+            android:onClick="searchHairStyles"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent"
@@ -25,22 +25,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView"
-            android:textSize="15sp"
+            android:textSize="40sp"
             android:textColor="@color/black"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintVertical_bias="0.341" />
+            app:layout_constraintVertical_bias="0.367" />
 
     <EditText
-            android:hint="@string/search_hairstyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:hint="@string/enter_hairstyle"
+            android:layout_width="215dp"
+            android:layout_height="71dp"
             android:id="@+id/editText"
             android:textSize="20sp"
+            android:inputType="text"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -51,8 +52,8 @@
             tools:ignore="TextContrastCheck" />
 
     <ProgressBar
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="75dp"
+            android:layout_height="62dp"
             android:id="@+id/progressBar"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
