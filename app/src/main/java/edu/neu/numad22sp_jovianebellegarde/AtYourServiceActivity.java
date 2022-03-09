@@ -37,10 +37,10 @@ public class AtYourServiceActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     binding = ActivityAtYourServiceBinding.inflate(getLayoutInflater());
     View view = binding.getRoot();
+    binding.progressBar.setVisibility(View.GONE);
     setContentView(view);
   }
 
-  // runnable thread
   public void getData(View view) {
     new Thread(new RunnableThread()).start();
   }
@@ -51,6 +51,8 @@ public class AtYourServiceActivity extends AppCompatActivity {
 
     @Override
     public void run() {
+
+      handler.post(() -> binding.progressBar.setVisibility(View.VISIBLE));
 
       try {
         URL url = new URL("https://ffxivcollect.com/api/hairstyles");
@@ -86,11 +88,14 @@ public class AtYourServiceActivity extends AppCompatActivity {
         Log.e(TAG, "JSONException");
         e.printStackTrace();
       }
+
       if (hairStyleHashMap.containsKey(userInput)) {
+        handler.post(() -> binding.progressBar.setVisibility(View.GONE));
         handler.post(() -> binding.textView.setText(hairStyleHashMap.get(userInput)));
       }
     }
 
+    // Referenced code from code given to us
     private String convertTheStringIntoStream(InputStream inputStream) {
       Scanner scanner = new Scanner(inputStream).useDelimiter("\\A");
       String returnString;

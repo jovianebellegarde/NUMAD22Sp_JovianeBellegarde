@@ -51,7 +51,6 @@
             tools:ignore="TextContrastCheck" />
 
     <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/progressBar"
