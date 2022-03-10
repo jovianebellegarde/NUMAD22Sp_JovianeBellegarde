@@ -1,8 +1,7 @@
 package edu.neu.numad22sp_jovianebellegarde;
 
-import edu.neu.numad22sp_jovianebellegarde.databinding.ActivityAtYourServiceBinding;
 import androidx.appcompat.app.AppCompatActivity;
-import android.annotation.SuppressLint;
+import edu.neu.numad22sp_jovianebellegarde.databinding.ActivityAtYourServiceBinding;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -17,48 +16,38 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class AtYourServiceActivity extends AppCompatActivity {
 
-  private static final String TAG = "AtYourServiceActivity";
-
-  @SuppressLint("StaticFieldLeak")
-  private static ActivityAtYourServiceBinding binding;
-
-  private static final Handler handler = new Handler();
-  private static final Map<String, String> hairStyleHashMap = new HashMap<>();
-  private static final String userInput = binding.editText.getText().toString().toLowerCase();
+  private String TAG;
+  private ActivityAtYourServiceBinding binding;
+  private Handler handler;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     binding = ActivityAtYourServiceBinding.inflate(getLayoutInflater());
-    binding.progressBar.setVisibility(View.GONE);
+    TAG = "AtYourServiceActivity";
+    handler = new Handler();
     View view = binding.getRoot();
+    binding.progressBar.setVisibility(View.GONE);
     setContentView(view);
   }
 
-  /** onClick method stated in the xml file. */
-  public void searchHairStyles(View view) {
-    Runnable runnable = new RunnableThread();
-    Thread runnableThread = new Thread(runnable);
-    runnableThread.start();
+  public void getData(View view) {
+    new Thread(new RunnableThread()).start();
   }
 
-  /** New runnable -> AsyncTask is deprecated now, so need runnable/thread to get around this. */
-  static class RunnableThread implements Runnable {
+  class RunnableThread implements Runnable {
+    HashMap<String, String> hairStyleHashMap = new HashMap<>();
+    String userInput = binding.editText.getText().toString().toLowerCase();
 
     @Override
     public void run() {
 
       handler.post(() -> binding.progressBar.setVisibility(View.VISIBLE));
-      parseJSONFile();
-      passUpdatedTextViewToMainThread();
-    }
 
-    private void parseJSONFile() {
       try {
         URL url = new URL("https://ffxivcollect.com/api/hairstyles");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -72,8 +61,7 @@ public class AtYourServiceActivity extends AppCompatActivity {
         JSONObject jsonObject = new JSONObject(response);
         JSONArray results = jsonObject.getJSONArray("results");
 
-        // TA sent me this for reference:
-        // https://www.tutorialspoint.com/android/android_json_parser.htm
+        /* TA sent me this for reference: https://www.tutorialspoint.com/android/android_json_parser.htm */
         for (int i = 0; i < results.length(); i++) {
           JSONObject result = results.getJSONObject(i);
           String name = result.getString("name");
@@ -81,28 +69,28 @@ public class AtYourServiceActivity extends AppCompatActivity {
 
           hairStyleHashMap.put(name.toLowerCase(), description);
         }
-      } catch (JSONException e) {
-        Log.e(TAG, "JSON Exception Detected");
+      } catch (MalformedURLException e) {
+        Log.e(TAG, "Malformed URL Exception");
         e.printStackTrace();
       } catch (ProtocolException e) {
-        Log.e(TAG, "Protocol Exception Detected");
-        e.printStackTrace();
-      } catch (MalformedURLException e) {
-        Log.e(TAG, "Malformed URL Exception Detected");
+        Log.e(TAG, "Protocol Exception");
         e.printStackTrace();
       } catch (IOException e) {
-        Log.e(TAG, "IO Exception Detected");
+        Log.e(TAG, "IO Exception");
         e.printStackTrace();
+      } catch (JSONException e) {
+        Log.e(TAG, "JSON Exception");
+        e.printStackTrace();
+      }
+
+      if (hairStyleHashMap.containsKey(userInput)) {
+        handler.post(() -> binding.progressBar.setVisibility(View.GONE));
+        handler.post(() -> binding.textView.setText(hairStyleHashMap.get(userInput)));
       }
     }
 
-    /**
-     * Converting strings into streams in order to parse the JSON file.
-     *
-     * @return String object.
-     */
+    // Referenced code from code given to us
     private String convertTheStringIntoStream(InputStream inputStream) {
-      // Referenced code from code given to us
       Scanner scanner = new Scanner(inputStream).useDelimiter("\\A");
       String returnString;
       if (scanner.hasNext()) {
@@ -111,14 +99,6 @@ public class AtYourServiceActivity extends AppCompatActivity {
         returnString = "";
       }
       return returnString;
-    }
-
-    /** Passes updated textValue and progressBar to the main thread. */
-    private void passUpdatedTextViewToMainThread() {
-      if (hairStyleHashMap.containsKey(userInput)) {
-        handler.post(() -> binding.progressBar.setVisibility(View.GONE));
-        handler.post(() -> binding.textView.setText(hairStyleHashMap.get(userInput)));
-      }
     }
   }
 }
