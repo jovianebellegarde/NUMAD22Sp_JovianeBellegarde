@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 public class LinkListActivity extends AppCompatActivity {
 
+  // TODO take another look at this
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
